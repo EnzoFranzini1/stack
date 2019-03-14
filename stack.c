@@ -26,7 +26,7 @@ int main(){
     break;
     case 2:show(show);
     break;
-    case 3:
+    case 3:delete(delete);
     break;
     case 0: return 0;
     break;
@@ -62,15 +62,32 @@ insert(data**List){
 
 
 show(data**List){
-
-    if(base == NULL){
-        printf("\n\n\nThe stack is empty\n\n\n");
-    }else{
-        chain = top;
-        while(chain -> back != NULL){
-            printf("\n%i",chain -> num);
-            chain = chain -> back;
-        }printf("\n%i\n\n",chain -> num);
-    }
+  if(base == NULL){
+    printf("\n\n\nThe stack is empty\n\n\n");
+  }else{
     chain = top;
+    while(chain -> back != NULL){
+      printf("\n%i",chain -> num);
+      chain = chain -> back;
+    }printf("\n%i\n\n",chain -> num);
+  }
+  chain = top;
+}
+
+delete(data**List){
+  if(base == NULL){
+    printf("\n\n\nThe stack is empty\n\n\n");
+  }else{
+    chain = top;
+    chain = chain -> back;
+    free(top);
+    if(base -> next != NULL){
+      top = chain;
+      top -> next = NULL;
+    }else{
+      base = NULL;
+    }
+
+  }
+
 }
