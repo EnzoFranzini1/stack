@@ -60,7 +60,6 @@ insert(data**List){
   }
 }
 
-
 show(data**List){
   if(base == NULL){
     printf("\n\n\nThe stack is empty\n\n\n");
@@ -78,14 +77,15 @@ delete(data**List){
   if(base == NULL){
     printf("\n\n\nThe stack is empty\n\n\n");
   }else{
-    chain = top;
-    chain = chain -> back;
-    free(top);
-    if(base -> next != NULL){
+
+    if(base -> next == NULL){
+      free(top);
+      base = NULL;
+    }else{
+      chain = top;
+      chain = chain -> back;
       top = chain;
       top -> next = NULL;
-    }else{
-      base = NULL;
     }
 
   }
