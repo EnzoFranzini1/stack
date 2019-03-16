@@ -84,6 +84,7 @@ delete(data**List){
     }else{
       chain = top;
       chain = chain -> back;
+      free(top);
       top = chain;
       top -> next = NULL;
     }
